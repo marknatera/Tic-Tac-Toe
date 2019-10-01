@@ -6,7 +6,6 @@ require_relative '../lib/banner.rb'
 require_relative "game.rb"
 require_relative 'board.rb'
 require_relative 'player.rb'
-require_relative 'spot.rb'
 
 module TicTacToe
   class T3Worker
@@ -16,7 +15,8 @@ module TicTacToe
     include Prompt
     include Banner
 
-    attr_accessor :player, :game_type
+    attr_accessor :player, :board, :game
+    attr_writer :game_type
 
     def initialize
       clear_terminal
@@ -75,6 +75,8 @@ module TicTacToe
 
     def start_game
       @game = Game.new(@players, @board)
+      current_game(@game)
+
     end
 
     # def play_again

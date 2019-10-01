@@ -19,11 +19,11 @@ module Frame
       #{board_column}\n
        \n
       #{board_header}\n
-      #{board.current_board_state[0]}\n
+      #{board.current_board_state[0]}
       #{board_separator}\n
-      #{@board.current_board_state[1]}\n
+      #{board.current_board_state[1]}
       #{board_separator}\n
-      #{@board.current_board_state[2]}\n
+      #{board.current_board_state[2]}
       #{board_footer}\n
        \n
       #{@player1.name}, Enter column first, then row || ex: A2"
