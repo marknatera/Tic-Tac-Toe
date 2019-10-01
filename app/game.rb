@@ -16,7 +16,7 @@ class Game
     board.turn_count.odd? ? @player2 : @player1
   end
 
-  def check_winner
+  def check_winner_draw
     winning_letter = @board.find_winner? ? @board.find_winner? : false
     cat = @board.full? ? @board.full? : false
 
@@ -24,7 +24,7 @@ class Game
       @player1.letter == "X" ? @winner = @player1 : @winner = @player2
       @winner.win_count += 1
       winner_prompt
-      play_again
+      game_loop
     end
 
     if cat
@@ -44,7 +44,7 @@ class Game
     y = letters.index(move[0])
     x = move[1].to_i-1
     @board.insert_token(current_player, x, y)
-    check_winner
+    check_winner_draw
     play
   end
 
@@ -59,7 +59,7 @@ class Game
     y = letters.index(move[0])
     x = move[1].to_i-1
     @board.insert_token(current_player, x, y)
-    check_winner
+    check_winner_draw
     cc_play
   end
 end
