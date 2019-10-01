@@ -21,11 +21,12 @@ class Game
       @player1.letter == "X" ? @winner = @player1 : @winner = @player2
       @winner.win_count += 1
       winner_prompt
-      game_loop
+      #game_loop
     end
 
     if cat
       cats_prompt
+      #game_loop
     end
   end
 

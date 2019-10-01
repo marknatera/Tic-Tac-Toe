@@ -57,7 +57,7 @@ module Frame
       #{board.display[2]}
       #{board_footer}\n
        \n
-      #{current_player.name}, Terminator!"
+      #{current_player.name}, What Bot Move!"
     end
   end
 
