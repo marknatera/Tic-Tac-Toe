@@ -14,5 +14,8 @@ gem 'tty-box'
 gem 'tty-cursor'
 gem 'tty-progressbar'
 
+# Fakeness
+gem 'ffaker'
+
 # Debug this
 gem 'pry'

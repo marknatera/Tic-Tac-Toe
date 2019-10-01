@@ -5,8 +5,16 @@ module Players
 
     def initialize
       self.wins_count = 0
-      # Need FFaker
-      self.name = "Alexander S. Douglas"
+      self.name = FFaker::Name.name
+      binding.pry
+      @@player1_letter == 'X' ? self.letter = 'O' : self.letter = 'X'
+      @@player1_letter = self.letter
+      check_cc
+    end
+
+    def check_cc
+      @@players == 0 ? @@players += 1 : @@players == 0
+      @@player1_letter = '' unless @@players == 1
     end
 
     def stats

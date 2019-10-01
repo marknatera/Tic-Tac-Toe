@@ -12,11 +12,34 @@ class Game
     @board    = board
   end
 
+  def current_player
+    board.turn_count.odd? ? player_2 : player_1
+  end
+
+  def draw?
+    @board.full? && !won? ? true : false
+  end
+
+  def over?
+    (won? || draw?) ? true : false
+  end
+
+  def winner
+    winner = @game.find_winner
+  end
+
+
+  def all_equal?(row)
+    return if row.first == ' '
+    row.each_cons(2).all? { |x,y| x == y }
+  end
 
   def play
     current_game_prompt
     change_turn
   end
+
+
 
 
   def current_turn(move)
@@ -47,10 +70,12 @@ class Game
 
   def check_rows
     @board.spaces.each { |row| return row.first if all_equal?(row) }
+    return false
   end
 
   def check_columns
     @board.spaces.transpose.each { |row| return row.first if all_equal?(row) }
+    return false
   end
 
   def check_diagonals
@@ -60,14 +85,11 @@ class Game
     ]
 
     diagonals.each { |row| return row.first if all_equal?(row) }
-    false
+    return false
   end
 
 
-  def all_equal?(row)
-    return if row.first == ' '
-    row.each_cons(2).all? { |x,y| x == y }
-  end
+
 
 
 

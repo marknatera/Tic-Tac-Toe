@@ -38,7 +38,7 @@
     end
 
     def bot_vs_bot
-      Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
+      Game.new(Players::Computer.new, Players::Computer.new, Board.new).play
     end
 
 

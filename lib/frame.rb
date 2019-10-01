@@ -11,19 +11,18 @@ module Frame
 
   def current_game_frame
     current_game_box = TTY::Box.frame(width: users_screen[1]/2, height: users_screen[0]/2, top: users_screen[0]/2/2, left: users_screen[1]/2/2, align: :center, padding: 1, border: :thick, style: {border: {fg: :yellow}}, title: {top_left: '  POLITECH // TIC-TAC-TOE  ', bottom_right: '  v1.0  '}) do
-      "#{player_move_banner}\n
-       \n
-       #{@player1.stats}\n
-       #{@player2.stats}\n
+      "\n#{game_start_banner}\n
+      \n#{@player1.stats}\n
+       \n#{@player2.stats}\n
        \n
       #{board_column}\n
        \n
       #{board_header}\n
-      #{board.current_board_state[0]}
+      #{board.display[0]}
       #{board_separator}\n
-      #{board.current_board_state[1]}
+      #{board.display[1]}
       #{board_separator}\n
-      #{board.current_board_state[2]}
+      #{board.display[2]}
       #{board_footer}\n
        \n
       #{@player1.name}, Enter column first, then row || ex: A2"
