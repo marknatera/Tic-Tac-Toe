@@ -17,7 +17,6 @@
 
     def setup_game
       main_menu_promt
-      player_config_prompt
       start_game
     end
 
@@ -31,31 +30,17 @@
     end
 
     def one_player
-      Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play
+      Game.new(Players::Human.new, Players::Computer.new, Board.new).play
     end
 
     def two_players
-      Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
+      Game.new(Players::Human.new, Players::Human.new, Board.new).play
     end
 
     def bot_vs_bot
       Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
     end
 
-    def set_player_one(player)
-      @player.name    = player[:name]
-      @player.letter  = player[:letter]
-      player[:letter] == 'X' ? @cpu.letter = 'O' : @cpu.letter = 'X'
-    end
-
-    def set_player_two(player)
-    end
-
-    def start_game
-      # @game = Game.new(@players, @board)
-      # current_game(@game)
-
-    end
 
     # def play_again
     #   loop do # notice much simpler loop

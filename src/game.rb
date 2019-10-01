@@ -6,19 +6,14 @@ class Game
 
   attr_accessor :game, :player, :board, :spot
 
-  def initialize(players, board)
-    @player1  = players[0]
-    @player2  = players[1]
+  def initialize(player1, player2, board)
+    @player1  = player1
+    @player2  = player2
     @board    = board
-
-
-
-    play
   end
 
 
   def play
-
     current_game_prompt
     change_turn
   end

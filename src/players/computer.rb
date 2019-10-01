@@ -1,10 +1,16 @@
 module Players
   class Computer < Player
 
+    attr_accessor :name, :letter, :wins_count
+
     def initialize
       self.wins_count = 0
       # Need FFaker
       self.name = "Alexander S. Douglas"
+    end
+
+    def stats
+      "#{self.name} as #{self.letter} // Wins: #{self.wins_count}"
     end
 
 

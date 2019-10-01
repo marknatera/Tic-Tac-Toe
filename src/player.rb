@@ -6,4 +6,11 @@ class Player
     @token = token
   end
 
+  def stats
+    "#{self.name} as #{self.letter} // Wins: #{self.wins_count}"
+  end
+
+
+
+
 end
