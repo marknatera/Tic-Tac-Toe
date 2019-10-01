@@ -25,10 +25,8 @@ class Game
     end
 
     if cat
-      cat_prompt
+      cats_prompt
     end
-
-
   end
 
   def play

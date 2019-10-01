@@ -54,7 +54,7 @@ class T3Worker
 
   def game_loop
     while play_again
-      game_start
+      Game.new(@player1, @player2, Board.new).play
     end
   end
 

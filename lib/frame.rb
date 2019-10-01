@@ -17,7 +17,7 @@ module Frame
 
   def cats_frame
     cats_box = TTY::Box.frame(width: users_screen[1]/2, height: users_screen[0]/2, padding: 3, align: :center, top: users_screen[0]/2/2, left: users_screen[1]/2/2, border: :thick, style: {border: {fg: :yellow}}, title: {top_center: '  POLITECH  ', bottom_right: '  v1.0  '}) do
-      "#{winner_banner.light_blue}\n#{winner.name} WINS!!!!!"
+      "#{cats_banner.light_red} SUCKS TO TIE :("
     end
   end
 
