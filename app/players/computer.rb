@@ -21,28 +21,28 @@ module Players
     end
 
 
-    def move(board)
-      if board.cells[4] == " "
-        "5"
-      elsif board.cells[0] == " "
-        "1"
-      elsif board.cells[2] == " "
-        "3"
-      elsif board.cells[6] == " "
-        "7"
-      elsif board.cells[8] == " "
-        "9"
-      elsif board.cells[1] == " "
-        "2"
-      elsif board.cells[3] == " "
-        "4"
-      elsif board.cells[5] == " "
-        "6"
-      elsif board.cells[7] == " "
-        "8"
+    def move(game)
+      if game.board.spaces[1][1].class    == SpotToken
+        move = "B2"
+      elsif game.board.spaces[0][0].class == SpotToken
+        move = "A1"
+      elsif game.board.spaces[0][2].class == SpotToken
+        move = "C1"
+      elsif game.board.spaces[2][0].class == SpotToken
+        move = "A3"
+      elsif game.board.spaces[2][2].class == SpotToken
+        move = "C3"
+      elsif game.board.spaces[0][1].class == SpotToken
+        move = "B1"
+      elsif game.board.spaces[1][0].class == SpotToken
+        move = "A2"
+      elsif game.board.spaces[1][2].class == SpotToken
+        move = "C2"
+      elsif game.board.spaces[2][1].class == SpotToken
+        move = "B3"
       end
 
+      game.cc_turn(move)
     end
-
   end
 end

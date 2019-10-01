@@ -33,7 +33,11 @@ class Board
   end
 
   def find_winner
-    check_rows || check_columns || check_diagonals
+    check_rows || check_columns || check_diagonals || full?
+  end
+
+  def full?
+    self.spaces.all? {|space| space == "X" || space == "O"}
   end
 
   def all_equal?(row)
@@ -43,12 +47,10 @@ class Board
 
   def check_rows
     @spaces.each { |row| return row.first if all_equal?(row) }
-    return false
   end
 
   def check_columns
     @spaces.transpose.each { |row| return row.first if all_equal?(row) }
-    return false
   end
 
   def check_diagonals
@@ -57,7 +59,6 @@ class Board
       [@spaces[0][2], @spaces[1][1], @spaces[2][0]]
     ]
     diagonals.each { |row| return row.first if all_equal?(row) }
-    return false
   end
 
 end

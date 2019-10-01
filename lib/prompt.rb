@@ -41,4 +41,13 @@ module Prompt
     current_turn(move)
   end
 
+  def current_cc_game_prompt
+    prompt = TTY::Prompt.new
+    prompt.keypress(current_cc_game_frame, timeout: 3)
+    clear_terminal
+    current_player.move(@game)
+
+
+  end
+
 end

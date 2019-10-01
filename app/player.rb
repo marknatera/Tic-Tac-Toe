@@ -1,6 +1,8 @@
 class Player
-
+  include Frame
+  attr_accessor :game
   attr_reader :token
+  
   @@players = 0
   @@player1_letter = ''
 
