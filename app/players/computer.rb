@@ -17,7 +17,7 @@ module Players
     end
 
     def stats
-      "#{self.name} as #{self.letter} // Wins: #{self.wins_count}"
+      "#{self.name} as #{self.letter} // Wins: #{self.win_count}"
     end
 
 
