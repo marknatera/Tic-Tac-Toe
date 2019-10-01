@@ -17,9 +17,10 @@ class Game
   end
 
   def check_winner
-    winner = @board.find_winner
+    winner = @board.find_winner? ? @board.find_winner? : false
+    cat = @board.full? ? @board.full? : false
     if winner
-      puts winner_prompt
+      winner_prompt
     end
   end
 

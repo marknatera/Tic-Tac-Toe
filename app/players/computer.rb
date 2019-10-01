@@ -41,7 +41,6 @@ module Players
       elsif game.board.spaces[2][1].class == SpotToken
         move = "B3"
       end
-
       game.cc_turn(move)
     end
   end

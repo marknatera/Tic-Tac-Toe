@@ -9,6 +9,12 @@ module Frame
     end
   end
 
+  def winners_frame
+    welcome_box = TTY::Box.frame(width: users_screen[1]/2, height: users_screen[0]/2, padding: 3, align: :center, top: users_screen[0]/2/2, left: users_screen[1]/2/2, border: :thick, style: {border: {fg: :yellow}}, title: {top_center: '  POLITECH  ', bottom_right: '  v1.0  '}) do
+      "#{winner_banner.light_blue}\n#{current_player.name} WINS!!!!!"
+    end
+  end
+
   def current_game_frame
     current_game_box = TTY::Box.frame(width: users_screen[1]/2, height: users_screen[0]/2, top: users_screen[0]/2/2, left: users_screen[1]/2/2, align: :center, padding: 1, border: :thick, style: {border: {fg: :yellow}}, title: {top_left: '  POLITECH // TIC-TAC-TOE  ', bottom_right: '  v1.0  '}) do
       "\n#{game_start_banner}\n

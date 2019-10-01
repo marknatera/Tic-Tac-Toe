@@ -43,11 +43,15 @@ module Prompt
 
   def current_cc_game_prompt
     prompt = TTY::Prompt.new
-    prompt.keypress(current_cc_game_frame, timeout: 3)
+    prompt.keypress(current_cc_game_frame, timeout: 1)
     clear_terminal
     current_player.move(@game)
+  end
 
-
+  def winner_prompt
+    prompt = TTY::Prompt.new
+    prompt.keypress(winners_frame)
+    exit
   end
 
 end
