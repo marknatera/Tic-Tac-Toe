@@ -54,4 +54,10 @@ module Prompt
     exit
   end
 
+  def cats_prompt
+    prompt = TTY::Prompt.new
+    prompt.keypress(cats_frame)
+    exit
+  end
+
 end

@@ -25,6 +25,7 @@ class Game
     end
 
     if cat
+      cat_prompt
     end
 
 

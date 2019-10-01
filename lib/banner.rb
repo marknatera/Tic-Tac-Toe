@@ -25,4 +25,8 @@ module Banner
     ascii_img 'winner.txt'
   end
 
+  def cats_banner
+    ascii_img 'winner.txt'
+  end
+
 end
