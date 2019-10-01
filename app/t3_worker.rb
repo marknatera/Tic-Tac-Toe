@@ -21,7 +21,6 @@
     end
 
     def game_config(game_selection)
-      # Config Logic goes here // Version 1 only Human vs Computer
       case game_selection
       when 'hvc'; return one_player;
       when 'hvh'; return two_players;
