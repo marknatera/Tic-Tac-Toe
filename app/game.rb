@@ -1,7 +1,4 @@
 class Game
-  include Frame
-  include Prompt
-  include Banner
 
   attr_accessor :winner, :winning_letter, :player1, :player2, :board
 
