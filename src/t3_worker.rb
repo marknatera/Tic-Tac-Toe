@@ -1,12 +1,3 @@
-require_relative '../lib/tic_tac_toe.rb'
-require_relative '../lib/frame.rb'
-require_relative '../lib/prompt.rb'
-require_relative '../lib/banner.rb'
-
-require_relative "game.rb"
-require_relative 'board.rb'
-require_relative 'player.rb'
-
 module TicTacToe
   class T3Worker
 
@@ -27,8 +18,8 @@ module TicTacToe
     def game_types
       game_types = [
         { name:'Human VS Computer', value: 'hvc'},
-        { name: 'Human VS Human', disabled: '(coming soon)', value: 'hvh' },
-        { name: 'Computer VS Computer', disabled: '(coming soon)', value: 'cvc' }
+        { name: 'Human VS Human', value: 'hvh' },
+        { name: 'Computer VS Computer', value: 'cvc' }
       ]
     end
 
@@ -54,7 +45,7 @@ module TicTacToe
       @players = [@player,@cpu]
     end
 
-    def two_player
+    def two_players
       # hvh code goes here
       puts "Not so fast"; return start_game;
     end
@@ -74,8 +65,8 @@ module TicTacToe
     end
 
     def start_game
-      @game = Game.new(@players, @board)
-      current_game(@game)
+      # @game = Game.new(@players, @board)
+      # current_game(@game)
 
     end
 
