@@ -1,17 +1,9 @@
-module TicTacToe
   class T3Worker
-
-    include TicTacToe
-    include Frame
-    include Prompt
-    include Banner
 
     attr_accessor :player, :board, :game
     attr_writer :game_type
 
     def initialize
-      clear_terminal
-      welcome_prompt
       setup_game
     end
 
@@ -25,7 +17,7 @@ module TicTacToe
 
     def setup_game
       main_menu_promt
-      player_config_prompt # This logic will change when different game_types allowed
+      player_config_prompt
       start_game
     end
 
@@ -39,20 +31,15 @@ module TicTacToe
     end
 
     def one_player
-      @board   = Board.new
-      @player  = Player.new('Human')
-      @cpu     = Player.new('Computer')
-      @players = [@player,@cpu]
+      Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play
     end
 
     def two_players
-      # hvh code goes here
-      puts "Not so fast"; return start_game;
+      Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
     end
 
     def bot_vs_bot
-      # cvc code goes here
-      puts "Not so fast"; return start_game;
+      Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
     end
 
     def set_player_one(player)
@@ -89,4 +76,3 @@ module TicTacToe
 
 
   end
-end

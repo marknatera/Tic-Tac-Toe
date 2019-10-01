@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
-@t3 = TicTacToe::T3Worker.new
-
+clear_terminal
+welcome_prompt
+@t3 = T3Worker.new
