@@ -1,10 +1,10 @@
 module Players
   class Human < Player
 
-    attr_accessor :name, :letter, :wins_count
+    attr_accessor :name, :letter, :win_count
 
     def initialize
-      self.wins_count = 0
+      self.win_count = 0
       player_config_prompt(@@players)
       @@players += 1
     end

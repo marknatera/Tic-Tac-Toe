@@ -3,7 +3,7 @@ class Game
   include Prompt
   include Banner
 
-  attr_accessor :winner, :player1, :player2, :board
+  attr_accessor :winner, :winning_letter, :player1, :player2, :board
 
   def initialize(player1, player2, board)
     @player1  = player1
@@ -17,11 +17,20 @@ class Game
   end
 
   def check_winner
-    winner = @board.find_winner? ? @board.find_winner? : false
+    winning_letter = @board.find_winner? ? @board.find_winner? : false
     cat = @board.full? ? @board.full? : false
-    if winner
+
+    if winning_letter
+      @player1.letter == "X" ? @winner = @player1 : @winner = @player2
+      @winner.win_count += 1
       winner_prompt
+      play_again
     end
+
+    if cat
+    end
+
+
   end
 
   def play
