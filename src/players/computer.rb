@@ -6,7 +6,6 @@ module Players
     def initialize
       self.wins_count = 0
       self.name = FFaker::Name.name
-      binding.pry
       @@player1_letter == 'X' ? self.letter = 'O' : self.letter = 'X'
       @@player1_letter = self.letter
       check_cc

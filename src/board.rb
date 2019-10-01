@@ -3,19 +3,13 @@ class Board
 
   @spaces = []
 
-  def reset!
-    self.spaces = Array.new(3) { Array.new(3, ' ') }
-  end
-
   def initialize
-    self.spaces = Array.new(3) { Array.new(3, ' ') }
+    self.spaces = Array.new(3) { Array.new(3, spot) }
   end
 
-  # def display
-  #   spaces.map.with_index do |row, index|
-  #     "#{index + 1} ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
-  #   end
-  # end
+  def spot
+    @spot ||= SpotToken.new
+  end
 
   def display
     spaces.map.with_index do |row, index|
@@ -29,30 +23,41 @@ class Board
     end
   end
 
-  def position(user_input)
-    self.cells[user_input.to_i-1]
-  end
-
-  def full?
-    self.cells.all? {|cell| cell == "X" || cell == "O"}
-  end
-
   def turn_count
     self.spaces.flatten.count('X') + self.spaces.flatten.count('O')
   end
 
-  def taken?(position) #check board position
-    self.cells[position.to_i-1] == "X" || #board position -1 because of test using range 1-9 (user input numbers)
-    self.cells[position.to_i-1] == "O"
+  def insert_token( player, x, y )
+    return unless @spaces[x][y].class == SpotToken
+    @spaces[x][y] = player.letter
   end
 
-  def valid_move?(position)
-    !taken?(position) && position.to_i >0 && position.to_i <=9
+  def find_winner
+    check_rows || check_columns || check_diagonals
   end
 
-  def update(position, player)
-      self.cells[position.to_i-1] = player.token
+  def all_equal?(row)
+    return if row.first == spot
+    row.each_cons(2).all? { |x,y| x == y }
   end
 
+  def check_rows
+    @spaces.each { |row| return row.first if all_equal?(row) }
+    return false
+  end
+
+  def check_columns
+    @spaces.transpose.each { |row| return row.first if all_equal?(row) }
+    return false
+  end
+
+  def check_diagonals
+    diagonals = [
+      [@spaces[0][0], @spaces[1][1], @spaces[2][2]],
+      [@spaces[0][2], @spaces[1][1], @spaces[2][0]]
+    ]
+    diagonals.each { |row| return row.first if all_equal?(row) }
+    return false
+  end
 
 end

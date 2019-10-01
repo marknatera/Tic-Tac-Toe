@@ -10,9 +10,9 @@ module Prompt
     print invasion_banner.red.blink
     prompt = TTY::Prompt.new
     game_selection = prompt.select('Choose Game Type?', game_types)
-    # pid = Process.fork{ exec "curl http://parrot.live" }
-    # sleep(2)
-    # Process.kill("HUP", pid)
+    pid = Process.fork{ exec "curl http://parrot.live" }
+    sleep(2)
+    Process.kill("HUP", pid)
     return game_config(game_selection)
     clear_terminal
   end

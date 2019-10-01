@@ -25,7 +25,7 @@ module Frame
       #{board.display[2]}
       #{board_footer}\n
        \n
-      #{@player1.name}, Enter column first, then row || ex: A2"
+      #{current_player.name}, Enter column first, then row || ex: A2"
     end
   end
 

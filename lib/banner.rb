@@ -21,6 +21,8 @@ module Banner
     ascii_img 'your_move.txt'
   end
 
-
+  def winner_banner
+    ascii_img 'winner.txt'
+  end
 
 end
