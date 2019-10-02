@@ -21,12 +21,14 @@ class Game
       @player1.letter == "X" ? @winner = @player1 : @winner = @player2
       @winner.win_count += 1
       winner_prompt
-      #game_loop
+      clear_terminal
+      game_loop
     end
 
     if cat
       cats_prompt
-      #game_loop
+      clear_terminal
+      game_loop
     end
   end
 
@@ -58,5 +60,25 @@ class Game
     @board.insert_token(current_player, x, y)
     check_winner_draw
     cc_play
+  end
+
+
+
+  def play_again
+    loop do
+      puts "Would like to play again? [y/ n]".bold.light_red
+      input = gets.chomp.upcase
+      if input == "Y"
+        return true
+      elsif input == "N"
+        exit
+      end
+    end
+  end
+
+  def game_loop
+    while play_again
+      Game.new(@player1, @player2, Board.new).play
+    end
   end
 end

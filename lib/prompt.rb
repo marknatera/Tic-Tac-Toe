@@ -51,15 +51,11 @@ module Prompt
   def winner_prompt
     prompt = TTY::Prompt.new
     prompt.keypress(winners_frame)
-    # clear_terminal
-    exit
   end
 
   def cats_prompt
     prompt = TTY::Prompt.new
     prompt.keypress(cats_frame)
-    # clear_terminal
-    exit
   end
 
 end

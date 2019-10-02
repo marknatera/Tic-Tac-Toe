@@ -41,22 +41,4 @@ class T3Worker
   end
 
 
-  def play_again
-    loop do
-      input = gets.chomp.upcase
-      if input == "Y"
-        return true
-      elsif input == "N"
-        return false
-      end
-    end
-  end
-
-  def game_loop
-    while play_again
-      Game.new(@player1, @player2, Board.new).play
-    end
-  end
-
-
 end
