@@ -14,11 +14,11 @@ class Board
   def display
     spaces.map.with_index do |row, index|
       if index == 0
-        "#{index + 1} ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
+        "#{index + 1}  ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
       elsif index == 1
-        "#{index + 1} ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
+        "#{index + 1}  ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
       else
-        "#{index + 1} ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
+        "#{index + 1}  ║  #{row[0]}  ║  #{row[1]}  ║  #{row[2]}  ║"
       end
     end
   end
@@ -27,7 +27,7 @@ class Board
     self.spaces.flatten.count('X') + self.spaces.flatten.count('O')
   end
 
-  def insert_token( player, x, y )
+  def insert_token(player, x, y)
     return unless @spaces[x][y].class == SpotToken
     @spaces[x][y] = player.letter
   end
