@@ -21,13 +21,11 @@ class Game
       @player1.letter == "X" ? @winner = @player1 : @winner = @player2
       @winner.win_count += 1
       winner_prompt
-      clear_terminal
       game_loop
     end
 
     if cat
       cats_prompt
-      clear_terminal
       game_loop
     end
   end
@@ -62,13 +60,12 @@ class Game
     cc_play
   end
 
-
-
   def play_again
     loop do
-      puts "Would like to play again? [y/ n]".bold.light_red
+      puts "Would like to play again? [y/ n]".bold
       input = gets.chomp.upcase
       if input == "Y"
+        clear_terminal
         return true
       elsif input == "N"
         exit
